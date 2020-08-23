@@ -1,0 +1,38 @@
+﻿@model List<crudOpsPrac.Context.emp_table>
+
+@{
+    ViewBag.Title = "EmployeeList";
+}
+
+
+
+    <table class="table table-hover">
+
+        <tr>
+            <th>EmpName</th>
+            <th>empFname</th>
+            <th>Email</th>
+            <th>Mobile_Phone</th>
+            <th>Description</th>
+
+            <th>Action</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+    <tr>
+        <td>@item.empName</td>
+        <td>@item.empFname</td>
+        <td>@item.Email</td>
+        <td>@item.Mobile_Phone</td>
+        <td>@item.Description</td>
+        <td>
+            <a href="@Url.Action("Employee",new {item.ID,item.empName,item.empFname,item.Email,item.Mobile_Phone,item.Description })" class="btn btn-success">Edit</a>
+            <a href="@Url.Action("Delete",new { item.ID})" class="btn btn-danger">Delete</a>     
+        </td>
+    </tr>
+        }
+
+    </table>
+
